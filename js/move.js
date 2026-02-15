@@ -1,9 +1,10 @@
 import { width, height, radius } from "./index.js";
 
 export let x = width / 2;
-export let y = height -30;
+export let y = height - 90;
 export let dx = 0;
 export let dy = 0;
+const gravity = 1;
 
 export function setDelta(value) {
     switch (value) {
@@ -26,15 +27,18 @@ export function setDelta(value) {
 }
 
 export function MoveBall() {
+    const prevX = x + dx;
+    const prevY = y + dy + gravity;
+
     // X limit
-    if (x + dx > width - r || x + dx < r) {
+    if (prevX > width - radius || prevX < radius) {
         dx = -dx;
     }
     // Y limit
-    if (y + dy > height - r || y + dy < r) {
-        dy = -dy;
+    if (prevY > height - radius || prevY < radius) {
+        dy = - dy - gravity;
     }
     // Move
     x += dx;
-    y += dy;
+    y += dy + gravity;
 }

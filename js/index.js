@@ -16,9 +16,19 @@ function drawBall() {
     ctx.closePath();
 }
 
+function drawCurve() {
+    ctx.beginPath();
+    ctx.arc(width / 2, height / 2, 150, 0, Math.PI * 2, false);
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+    ctx.closePath();
+}
+
 function draw() {
     ctx.clearRect(0, 0, width, height);
+    drawCurve();
     drawBall();
+    MoveBall();
 }
 
 function startGame() {
