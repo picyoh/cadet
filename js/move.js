@@ -1,7 +1,7 @@
 import { width, height, radius } from "./index.js";
 
 export let x = width / 2;
-export let y = height - 90;
+export let y = height / 2;
 export let dx = 0;
 export let dy = 0;
 const gravity = 1;
@@ -26,7 +26,7 @@ export function setDelta(value) {
     }
 }
 
-export function MoveBall() {
+export function moveBall() {
     const prevX = x + dx;
     const prevY = y + dy + gravity;
 
