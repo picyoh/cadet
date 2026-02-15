@@ -1,3 +1,4 @@
+import {x, y, MoveBall} from "./move.js"
 // DOM Element
 const canvas = document.querySelector("canvas");
 let ctx = canvas.getContext("2d");
@@ -6,8 +7,6 @@ let ctx = canvas.getContext("2d");
 export const width = canvas.width;
 export const height = canvas.height;
 export const radius = 10;
-let x = width / 2;
-let y = height - 30;
 
 function drawBall() {
     ctx.beginPath();
