@@ -31,3 +31,9 @@ function startGame() {
 }
 
 startGame();
+
+//TODO: merge with cadetE
+//TODO: add constructor to ball
+//TODO: add constructor to background
+//TODO: add collision engine
+
