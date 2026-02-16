@@ -1,4 +1,6 @@
-import { width, height, radius } from "./index.js";
+import { width, height } from "./index.js";
+import { ball } from "./ball.js";
+const radius = ball.radius;
 
 export let x = width / 2;
 export let y = height / 2;
@@ -41,4 +43,8 @@ export function moveBall() {
     // Move
     x += dx;
     y += dy + gravity;
+}
+
+export function redirectBall(c1,c2){
+    //console.log(true)
 }

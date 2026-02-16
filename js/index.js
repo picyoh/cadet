@@ -1,43 +1,32 @@
-import { x, y, moveBall } from "./move.js"
+import { x, y, moveBall } from "./move.js";
 import { collisionDetection } from "./collision.js";
+import { drawBall } from "./ball.js";
+import { curve, drawCurve } from "./background.js";
+import { ball } from "./ball.js";
 // DOM Element
-const canvas = document.querySelector("canvas");
-let ctx = canvas.getContext("2d");
+export let width;
+export let height
 
-export const width = canvas.width;
-export const height = canvas.height;
-export const radius = 10;
-
-let ball = { x: 0, y: 0, radius: radius }; 
-let curve = { x: width / 2 , y: height/ 2, radius: 150 };
-
-function drawBall() {
-    ctx.beginPath();
-    ctx.arc(x, y, radius, 0, Math.PI * 2, false);
-    ctx.fillStyle = "black";
-    ctx.fill();
-    ctx.closePath();
-    ball = {x: x, y: y, radius: radius}
+function resizeCanvas() {
+    const scene = document.getElementById("scene");
+    width = scene.offsetWidth;
+    height = scene.offsetHeight;
+    const layers = document.querySelectorAll(".layer").forEach((layer) => {
+        const canvas = document.getElementById(layer.id);
+        canvas.width = width;
+        canvas.height = height;
+    });
 }
 
-function drawCurve() {
-    ctx.beginPath();
-    ctx.arc(width / 2, height,100, 0, Math.PI * 2, false);
-    ctx.strokeStyle = "red";
-    ctx.stroke();
-    ctx.closePath();
-}
-
-function draw() {
-    ctx.clearRect(0, 0, width, height);
-    drawCurve()
+function step() {
+    ball.ctx.clearRect(0, 0, width, height);
     drawBall();
     collisionDetection(ball, curve);
     moveBall();
 }
-
 function startGame() {
-    setInterval(draw, 10);
+    requestAnimationFrame(step);
+    resizeCanvas();
     drawCurve();
 }
 
