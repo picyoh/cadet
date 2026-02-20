@@ -1,9 +1,6 @@
 import { width, height } from "./index.js";
-import { ball } from "./ball.js";
 const radius = ball.radius;
 
-export let x = width / 2;
-export let y = height / 2;
 export let dx = 0;
 export let dy = 0;
 const gravity = 1;

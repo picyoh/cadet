@@ -28,32 +28,3 @@ export function keyDownHandler(e) {
     }
     setDelta(value);
 }
-
-export function keyUpHandler(e) {
-    let value = "";
-    switch (e.key) {
-        case "Up":
-        case "ArrowUp":
-        case "w":
-            value = "down";
-            break;
-        case "Right":
-        case "ArrowRight":
-        case "d":
-            value = "left";
-            break;
-        case "Down":
-        case "ArrowDown":
-        case "s":
-            value = "up";
-            break;
-        case "Left":
-        case "ArrowLeft":
-        case "a":
-            value = "right";
-            break;
-        default:
-            console.log("wrong key");
-    }
-    setDelta(value);
-}
